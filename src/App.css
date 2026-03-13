@@ -1,0 +1,123 @@
+/* Additional App-specific styles */
+
+.step-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.step-item {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 6px;
+  border-left: 4px solid #6366f1;
+  transition: all 0.3s ease;
+}
+
+.step-item.active {
+  background: #eef2ff;
+  border-left-color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.step-item.completed {
+  border-left-color: #10b981;
+  background: #f0fdf4;
+}
+
+.step-item h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.step-item p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.panel {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .step-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Button Animations */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Data Item Animations */
+.data-item {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Chart Container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin: 20px 0;
+}
+
+/* Tooltip Enhancement */
+[title] {
+  cursor: help;
+}
